@@ -2,11 +2,11 @@ import React from 'react'
 import { AiFillLock, AiOutlineMail } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
 
-const Signin = () => {
+const Signup = () => {
   return (
     <div>
       <div className="max-w-[400px] mx-auto min-h-[600px] px-4 py-20">
-        <h1 className="text-2xl font-bold">Sign in</h1>
+        <h1 className="text-2xl font-bold">Sign up</h1>
         <form>
           <div className="my-4">
             <label htmlFor="email">Email</label>
@@ -28,14 +28,19 @@ const Signin = () => {
               <AiFillLock className="absolute right-2 top-3 text-gray-400" />
             </div>
           </div>
-          <button className='w-full my-2 p-3 bg-button text-btnText rounded-2xl shadow-xl'>Sign in</button>
+          <button className="w-full my-2 p-3 bg-button text-btnText rounded-2xl shadow-xl">
+            Sign up
+          </button>
         </form>
-        <p className='my-4'>
-          Don't have an accoung? <Link to="/signup" className='text-accent'>Sign up</Link>
+        <p className="my-4">
+          Already have an account?{' '}
+          <Link to="/signin" className="text-accent">
+            Sign in
+          </Link>
         </p>
       </div>
     </div>
   )
 }
 
-export default Signin
+export default Signup
