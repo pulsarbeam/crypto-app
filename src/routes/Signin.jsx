@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { AiFillLock, AiOutlineMail } from 'react-icons/ai'
 import { Link, useNavigate } from 'react-router-dom'
 import { signIn, UserAuth } from '../context/AuthContext'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const Signin = () => {
   const [email, setEmail] = useState('')
@@ -14,11 +16,16 @@ const Signin = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setError('')
     try {
       await signIn(email, password)
       navigate('/account')
-    } catch (error) {
-      setError(error.message)
+    } catch (e) {
+      console.log(e.message)
+      setError(e.message)
+      toast.error(e.message)
+      setEmail('')
+      setPassword('')
     }
   }
 
@@ -34,6 +41,7 @@ const Signin = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full p-2 bg-primary border border-input rounded-2xl"
                 type="email"
+                value={email}
               />
               <AiOutlineMail className="absolute right-2 top-3 text-gray-400" />
             </div>
@@ -45,6 +53,7 @@ const Signin = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 className="w-full p-2 bg-primary border border-input rounded-2xl"
                 type="password"
+                value={password}
               />
               <AiFillLock className="absolute right-2 top-3 text-gray-400" />
             </div>

@@ -10,6 +10,8 @@ import CoinPage from './routes/CoinPage'
 import axios from 'axios'
 import Footer from './components/Footer'
 import { AuthContextProvider } from './context/AuthContext'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
   const [coins, setCoins] = useState([])
@@ -38,6 +40,7 @@ function App() {
         </Routes>
         <Footer />
       </AuthContextProvider>
+      <ToastContainer />
     </ThemeProvider>
   )
 }
