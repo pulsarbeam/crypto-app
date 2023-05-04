@@ -70,24 +70,30 @@ const Navbar = () => {
         }
       >
         <ul className="w-full p-4 ">
-          <li className="border-b py-6">
+          <li onClick={handleNav} className="border-b py-6">
             <Link to="/">Home</Link>
           </li>
-          <li className="border-b py-6">
-            <Link to="/">Account</Link>
+          <li onClick={handleNav} className="border-b py-6">
+            <Link to="/account">Account</Link>
           </li>
-          <li className=" py-6">
+          <li onClick={handleNav} className=" py-6">
             <ThemeToggle />
           </li>
         </ul>
         <div className="flex flex-col w-full p-4">
           <Link to="/signin">
-            <button className="w-full my-2 p-3 bg-primary text-primary border-secondary rounded-2xl shadow-xl">
+            <button
+              onClick={handleNav}
+              className="w-full my-2 p-3 bg-primary text-primary border-secondary rounded-2xl shadow-xl"
+            >
               Sign In
             </button>
           </Link>
           <Link to="/signup">
-            <button className="w-full my-2 bg-button text-btnText rounded-2xl shadow-xl">
+            <button
+              onClick={handleNav}
+              className="w-full my-2 bg-button text-btnText rounded-2xl shadow-xl"
+            >
               Sign Up
             </button>
           </Link>
